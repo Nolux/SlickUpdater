@@ -19,8 +19,7 @@ namespace SlickUpdater {
         static BackgroundWorker bw1 = new BackgroundWorker();
 
         public static void inputGen() {
-            //string dirPath = ConfigManager.fetch("repoGen", "inputDir");
-            string dirPath = Properties.Settings.Default.inputDir;
+            string dirPath = ConfigManager.fetch("repoGen", "inputDir");
             if (dirPath != "") {
 
                 BitmapImage modRed = new BitmapImage(new Uri(@"pack://application:,,,/Slick Updater Beta;component/Resources/modRed.png"));
@@ -68,7 +67,7 @@ namespace SlickUpdater {
 
             DataGrid listView = WindowManager.mainWindow.outputDirListBox;
 
-            string outputDir = Properties.Settings.Default.outputDir;
+            string outputDir = ConfigManager.fetch("repoGen", "outputDir");
             DirectoryInfo outputDirInfo = new DirectoryInfo(outputDir);
 
             if (!Directory.Exists(outputDir)) {
@@ -85,7 +84,7 @@ namespace SlickUpdater {
                     modSourceFolder modSource = listView.Items.GetItemAt(i) as modSourceFolder;
                     string modFolderName = modSource.modFolderName;
                     string modVersionNumber = modSource.modVersion;
-                    string inputDir = Properties.Settings.Default.inputDir;
+                    string inputDir = ConfigManager.fetch("repoGen", "inputDir");
                     if (Directory.Exists(inputDir)) {
                         string inputModDir = inputDir + "\\" + modFolderName;
                         //genFile(inputModDir);

@@ -23,114 +23,100 @@ namespace SlickUpdater {
         }
         void initializeValues() {
 
-            if (Properties.Settings.Default.window == true) {
+            if (ConfigManager.fetch("ArmA3", "window") == "true") {
                 window.IsChecked = true;
             } else {
                 window.IsChecked = false;
             }
 
-            if (Properties.Settings.Default.nosplash == true) {
+            if (ConfigManager.fetch("ArmA3", "nosplash") == "true") {
                 nosplash.IsChecked = true;
             } else {
                 nosplash.IsChecked = false;
             }
 
-            if (Properties.Settings.Default.skipIntro == true) {
+            if (ConfigManager.fetch("ArmA3", "skipIntro") == "true") {
                 skipIntro.IsChecked = true;
             } else {
                 skipIntro.IsChecked = false;
             }
 
-            if (Properties.Settings.Default.noLogs == true) {
+            if (ConfigManager.fetch("ArmA3", "noLogs") == "true") {
                 noLogs.IsChecked = true;
             } else {
                 noLogs.IsChecked = false;
             }
 
-            if (Properties.Settings.Default.noPause == true) {
+            if (ConfigManager.fetch("ArmA3", "noPause") == "true") {
                 noPause.IsChecked = true;
             } else {
                 noPause.IsChecked = false;
             }
 
-            if (Properties.Settings.Default.showScriptErrors == true) {
+            if (ConfigManager.fetch("ArmA3", "showScriptErrors") == "true") {
                 showScriptErrors.IsChecked = true;
             } else {
                 showScriptErrors.IsChecked = false;
             }
 
-            world.Text = Properties.Settings.Default.world;
-            customParams.Text = Properties.Settings.Default.customParams;
+            world.Text = ConfigManager.fetch("ArmA3", "world");
+            customParams.Text = ConfigManager.fetch("ArmA3", "customParameters");
         }
 
         private void window_Click(object sender, RoutedEventArgs e) {
             if (window.IsChecked == true) {
-                Properties.Settings.Default.window = true;
-                //ConfigManager.write("ArmA3", "window", "true");
+                ConfigManager.write("ArmA3", "window", "true");
             } else {
-                //ConfigManager.write("ArmA3", "window", "false");
-                Properties.Settings.Default.window = false;
+                ConfigManager.write("ArmA3", "window", "false");
             }
         }
 
         private void nosplash_Click(object sender, RoutedEventArgs e) {
             if (nosplash.IsChecked == true) {
-                Properties.Settings.Default.nosplash = true;
-                //ConfigManager.write("ArmA3", "nosplash", "true");
+                ConfigManager.write("ArmA3", "nosplash", "true");
             } else {
-                Properties.Settings.Default.nosplash = false;
-                //ConfigManager.write("ArmA3", "nosplash", "false");
+                ConfigManager.write("ArmA3", "nosplash", "false");
             }
         }
 
         private void skipIntro_Click(object sender, RoutedEventArgs e) {
             if (skipIntro.IsChecked == true) {
-                Properties.Settings.Default.skipIntro = true;
-                //ConfigManager.write("ArmA3", "skipIntro", "true");
+                ConfigManager.write("ArmA3", "skipIntro", "true");
             } else {
-                Properties.Settings.Default.skipIntro = false;
-                //ConfigManager.write("ArmA3", "skipIntro", "false");
+                ConfigManager.write("ArmA3", "skipIntro", "false");
             }
         }
 
         private void noLogs_Click(object sender, RoutedEventArgs e) {
             if (noLogs.IsChecked == true) {
-                Properties.Settings.Default.noLogs = true;
-                //ConfigManager.write("ArmA3", "noLogs", "true");
+                ConfigManager.write("ArmA3", "noLogs", "true");
             } else {
-                Properties.Settings.Default.noLogs = false;
-                //ConfigManager.write("ArmA3", "noLogs", "false");
+                ConfigManager.write("ArmA3", "noLogs", "false");
             }
         }
 
         private void noPause_Click(object sender, RoutedEventArgs e) {
             if (noPause.IsChecked == true) {
-                Properties.Settings.Default.noLogs = true;
-                //ConfigManager.write("ArmA3", "noPause", "true");
+                ConfigManager.write("ArmA3", "noPause", "true");
             } else {
-                Properties.Settings.Default.noLogs = false;
-                //ConfigManager.write("ArmA3", "noPause", "false");
+                ConfigManager.write("ArmA3", "noPause", "false");
             }
         }
 
         private void showScriptErrors_Click(object sender, RoutedEventArgs e) {
             if (showScriptErrors.IsChecked == true) {
-                Properties.Settings.Default.showScriptErrors = true;
-                //ConfigManager.write("ArmA3", "showScriptErrors", "true");
+                ConfigManager.write("ArmA3", "showScriptErrors", "true");
             } else {
-                Properties.Settings.Default.showScriptErrors = true;
-                //ConfigManager.write("ArmA3", "showScriptErrors", "false");
+                ConfigManager.write("ArmA3", "showScriptErrors", "false");
             }
         }
 
         private void world_TextChanged(object sender, TextChangedEventArgs e) {
-            Properties.Settings.Default.world = world.Text;
-            //ConfigManager.write("ArmA3", "world", world.Text);
+            ConfigManager.write("ArmA3", "world", world.Text);
         }
 
         private void customParams_TextChanged(object sender, TextChangedEventArgs e) {
-            Properties.Settings.Default.customParams = customParams.Text;
-            //ConfigManager.write("ArmA3", "customParameters", customParams.Text);
+            ConfigManager.write("ArmA3", "customParameters", customParams.Text);
         }
 
         private void Window_Closed(object sender, EventArgs e) {

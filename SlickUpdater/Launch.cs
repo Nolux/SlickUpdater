@@ -10,38 +10,38 @@ namespace SlickUpdater {
     static class Launch {
         static public void a3Launch(bool connectToServer, string server) {
             string arma3Path = regcheck.arma3RegCheck() + "\\arma3.exe";
-            string world = Properties.Settings.Default.world;
-            string customParams = Properties.Settings.Default.customParams;
+            string world = ConfigManager.fetch("ArmA3", "world");
+            string customParams = ConfigManager.fetch("ArmA3", "customParameters");
             string mods = modlister();
 
             string args = "";
-            if (Properties.Settings.Default.window == true) {
+            if (ConfigManager.fetch("ArmA3", "window") == "true") {
                 args += " -window";
             }
-            if (Properties.Settings.Default.nosplash == true) {
+            if (ConfigManager.fetch("ArmA3", "nosplash") == "true") {
                 args += " -nosplash";
             }
-            if (Properties.Settings.Default.skipIntro == true) {
+            if (ConfigManager.fetch("ArmA3", "skipIntro") == "true") {
                 args += " -skipIntro";
             }
-            if (Properties.Settings.Default.noLogs == true) {
+            if (ConfigManager.fetch("ArmA3", "noLogs") == "true") {
                 args += " -noLogs";
             }
-            if (Properties.Settings.Default.noPause == true) {
+            if (ConfigManager.fetch("ArmA3", "noPause") == "true") {
                 args += " -noPause";
             }
-            if (Properties.Settings.Default.showScriptErrors == true) {
+            if (ConfigManager.fetch("ArmA3", "showScriptErrors") == "true") {
                 args += " -showScriptErrors";
             }
             if (connectToServer == true)
             {
                 if (server == "PA Repo")
                 {
-                    args += " -port=2302 -connect=arma.projectawesome.net -password=PA";
+                    args += " -port=2302 -connect=216.155.136.21 -password=PA";
                 }
                 else if (server == "Test Outfit Repo")
                 {
-                    args += " -port=2302 -connect=arma.testoutfit.info -password=scott";
+                    args += " -port=2302 -connect=72.5.102.119 -password=scott";
                 }
             }
             if (world != "") {
@@ -66,32 +66,32 @@ namespace SlickUpdater {
         static public void a2Launch(bool connectToServer, string server)
         {
             string arma2Path = regcheck.arma2RegCheck() + "\\ArmA2OA.exe";
-            string world = Properties.Settings.Default.world;
-            string customParams = Properties.Settings.Default.customParams;
+            string world = ConfigManager.fetch("ArmA2", "world");
+            string customParams = ConfigManager.fetch("ArmA2", "customParameters");
             string mods = modlister();
 
             string args = "";
-            if (Properties.Settings.Default.window == true)
+            if (ConfigManager.fetch("ArmA2", "window") == "true")
             {
                 args += " -window";
             }
-            if (Properties.Settings.Default.nosplash == true)
+            if (ConfigManager.fetch("ArmA2", "nosplash") == "true")
             {
                 args += " -nosplash";
             }
-            if (Properties.Settings.Default.skipIntro == true)
+            if (ConfigManager.fetch("ArmA2", "skipIntro") == "true")
             {
                 args += " -skipIntro";
             }
-            if (Properties.Settings.Default.noLogs == true)
+            if (ConfigManager.fetch("ArmA2", "noLogs") == "true")
             {
                 args += " -noLogs";
             }
-            if (Properties.Settings.Default.noPause == true)
+            if (ConfigManager.fetch("ArmA2", "noPause") == "true")
             {
                 args += " -noPause";
             }
-            if (Properties.Settings.Default.showScriptErrors == true)
+            if (ConfigManager.fetch("ArmA2", "showScriptErrors") == "true")
             {
                 args += " -showScriptErrors";
             }
